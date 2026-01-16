@@ -4,7 +4,7 @@ public enum MemberRole {
 
     GUEST,
     USER,
-    HIGH,
+    AUTHORITY,
     ADMIN;
 
 
