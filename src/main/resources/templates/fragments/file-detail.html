@@ -1,0 +1,21 @@
+<div th:fragment="detail-view" class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+    <h3 class="text-lg font-bold text-blue-800 mb-2">
+        <span th:text="${file.name}">파일명</span> 상세 정보
+    </h3>
+    <div class="grid grid-cols-2 gap-4 text-sm">
+        <div><strong>종류:</strong> <span th:text="${file.type}">Log 파일</span></div>
+        <div><strong>생성일:</strong> <span th:text="${file.createdAt}">2026-01-17</span></div>
+        <div class="col-span-2 mt-2">
+            <strong>내용 요약:</strong>
+            <pre class="bg-white p-3 mt-1 rounded border" th:text="${file.content}">파일의 실제 내용이나 특성 정보...</pre>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="access-denied" class="bg-red-50 p-6 rounded-lg border border-red-200 flex items-center">
+    <span class="text-3xl mr-4">🚫</span>
+    <div>
+        <h3 class="text-lg font-bold text-red-800">접근 권한 없음</h3>
+        <p class="text-red-600">이 파일(Silo)에 접근할 수 있는 등급이 아닙니다. 관리자에게 문의하세요.</p>
+    </div>
+</div>

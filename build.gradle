@@ -52,6 +52,9 @@ dependencies {
 	implementation 'com.google.firebase:firebase-admin:9.1.1'
 	implementation 'commons-io:commons-io:2.11.0'
 	implementation 'org.jsoup:jsoup:1.17.1'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // HTMX를 서버측에서 쉽게 제어하기 위한 라이브러리 (선택사항)
+    implementation 'io.github.wimdeblauwe:htmx-spring-boot-thymeleaf:3.5.0'
 
 }
 

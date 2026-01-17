@@ -1,0 +1,20 @@
+<div th:fragment="content">
+    <h2 class="text-xl font-bold mb-6">Silo Files</h2>
+    <div class="grid grid-cols-4 gap-6">
+        <div th:each="file : ${files}" class="flex flex-col items-center p-4 bg-white rounded shadow group">
+            <div class="text-5xl mb-2 text-yellow-500">📁</div>
+            <span class="text-sm font-medium" th:text="${file.name}">Document.pdf</span>
+            
+            <div class="mt-4">
+                <button th:if="${file.hasAccess}" 
+                        class="px-3 py-1 bg-blue-500 text-white text-xs rounded hover:bg-blue-600">
+                    Open File
+                </button>
+                <span th:unless="${file.hasAccess}" 
+                      class="text-red-400 text-xs flex items-center">
+                    🔒 No Access
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
