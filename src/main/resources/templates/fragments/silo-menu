@@ -1,0 +1,18 @@
+<div th:fragment="content">
+    <h2 class="text-xl font-bold mb-6" th:text="${menuName}">메뉴 이름</h2>
+    
+    <div class="grid grid-cols-4 gap-8">
+        <div th:each="file : ${files}" class="flex flex-col items-center">
+            <div class="relative cursor-pointer group"
+                 th:attr="hx-get=@{/files/detail/{id}(id=${file.id})}"
+                 hx-target="#main-content">
+                
+                <span class="text-6xl" th:text="${file.hasAccess ? '📂' : '🔒'}">📁</span>
+                
+                <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-sm font-medium">
+                    [[${file.name}]]
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

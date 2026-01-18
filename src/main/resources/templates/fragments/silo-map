@@ -1,0 +1,26 @@
+<div th:fragment="content">
+    <h2 class="text-xl font-bold mb-4">Silo 현황 지도</h2>
+    
+    <div class="relative w-full h-[600px] bg-slate-200 rounded-lg overflow-hidden border-2 border-slate-300">
+        
+        <div th:each="silo : ${silos}" 
+             class="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group"
+             th:style="|left: ${silo.posX}%; top: ${silo.posY}%;|"
+             th:attr="hx-get=@{/silo/detail/{id}(id=${silo.id})}"
+             hx-target="#silo-detail-side">
+            
+            <div class="flex flex-col items-center">
+                <div class="w-12 h-16 bg-slate-700 rounded-t-full border-2 border-white shadow-lg group-hover:bg-blue-600 transition-colors flex items-center justify-center text-white text-xs font-bold">
+                    <span th:text="${silo.name}">A</span>
+                </div>
+                <div class="w-12 h-4 bg-slate-800 rounded-b-lg shadow-md"></div>
+            </div>
+
+            <div class="hidden group-hover:block absolute bottom-full mb-2 bg-black text-white text-[10px] px-2 py-1 rounded">
+                [[${silo.name}]] (Click)
+            </div>
+        </div>
+    </div>
+
+    <div id="silo-detail-side" class="mt-4"></div>
+</div>

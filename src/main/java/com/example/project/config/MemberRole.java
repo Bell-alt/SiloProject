@@ -1,11 +1,24 @@
 package com.example.project.config;
 
-public enum MemberRole {
+import org.checkerframework.checker.units.qual.s;
 
-    GUEST,
-    USER,
-    AUTHORITY,
-    ADMIN;
+public enum MemberRole {
+   
+    ADMIN(3),
+    AUTHORITY(2),    
+    USER(1),
+    GUEST(0);
+
+    private final int level;
+
+    MemberRole(int level){
+        this.level = level;
+
+    }
+    
+    private int getLevel(){
+        return level;
+    }
 
 
 }

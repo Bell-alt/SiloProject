@@ -1,0 +1,32 @@
+<div th:fragment="content">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold">Silo Real-time Map</h2>
+        <span class="text-sm text-gray-500">Total: [[${silos.size()}]] Silos</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div th:each="silo : ${silos}" class="p-6 bg-white rounded-xl shadow-sm border border-gray-100">
+            <div class="flex justify-between items-start mb-4">
+                <h3 class="font-semibold text-lg" th:text="${silo.name}">Silo-01</h3>
+                <span th:classappend="${silo.status == 'NORMAL' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}"
+                      class="px-2 py-1 rounded text-xs font-bold" 
+                      th:text="${silo.status}">
+                </span>
+            </div>
+            
+            <div class="space-y-2 text-sm text-gray-600">
+                <p>📍 위치: [[${silo.locationX}]], [[${silo.locationY}]]</p>
+                <p>📊 용량: [[${silo.capacity}]]%</p>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div class="bg-blue-600 h-2 rounded-full" th:style="'width: ' + ${silo.capacity} + '%'"></div>
+                </div>
+            </div>
+
+            <button class="mt-4 w-full py-2 bg-slate-800 text-white rounded hover:bg-slate-700 transition"
+                    th:attr="hx-get=@{/files/detail/{id}(id=${silo.id})}"
+                    hx-target="#main-content">
+                상세 정보 보기
+            </button>
+        </div>
+    </div>
+</div>
