@@ -15,7 +15,8 @@ public interface SIloMapper {
     @Select("select * from siloFile")
     List<SiloFile> findAllSilos();
     
-    @Select(""" select * ,
+    @Select("""
+             select * ,
              case when #{userLevel} >= required_level then 1 else 0 end as hasAccess
              from siloFiles where cetegory = #{category}            
             """)

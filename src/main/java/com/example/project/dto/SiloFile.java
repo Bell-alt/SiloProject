@@ -6,5 +6,6 @@ public class SiloFile {
     private String fileName;
     private String content;
     private String fileType;
+    private int requiredLevel;
     private boolean hasAccess;
 }

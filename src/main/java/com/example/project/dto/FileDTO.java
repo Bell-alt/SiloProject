@@ -7,7 +7,7 @@ public class FileDTO {
     private String fileName;
     private String content;
     private String fileType;
-    private int req;uiredLevel;
+    private int requiredLevel;
 
 
 }

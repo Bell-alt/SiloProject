@@ -17,7 +17,7 @@ import reactor.netty.http.server.HttpServerRequest;
 @RequiredArgsConstructor
 public class SiloController {
 
-    private final SIloMapper sIloMapper;
+    private final SIloMapper siloMapper;
     
     @GetMapping("/")
     public String indexS(Model model,SiloFile file){
@@ -28,7 +28,7 @@ public class SiloController {
     @GetMapping("/menu/silo-map")
     public String siloMap(Model model, HttpServletRequest request){
         
-       List<SiloFile> silos = sIloMapper.fildAllSilos();
+       List<SiloFile> silos = siloMapper.findAllSilos();
        model.addAttribute("silos", silos);
 
 
