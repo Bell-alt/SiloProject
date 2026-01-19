@@ -1,6 +1,7 @@
 package com.example.project.dto;
 
-public class SiloFile {
+public class SiloFileResponse {
+
 
     private Long fileIdx;
     private String fileName;

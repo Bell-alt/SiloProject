@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Silo Project</title>
+    <meta charset="UTF-8">
+    <title>Silo System</title>
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
-    <script src="https://cdn.tailwindcss.com"></script> </head>
-<body class="flex h-screen bg-gray-100">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="flex h-screen bg-gray-50 text-gray-800">
 
-    <aside class="w-64 bg-slate-800 text-white p-6">
-        <h1 class="text-2xl font-bold mb-10">Silo System</h1>
-        <nav class="space-y-4">
-            <a href="#" class="block hover:text-blue-400" 
-               hx-get="/menu/silo-map" hx-target="#main-content" hx-push-url="true">Silo Map</a>
-            <a href="#" class="block hover:text-blue-400" 
-               hx-get="/menu/silo-info" hx-target="#main-content" hx-push-url="true">Silo Info</a>
-            <a href="#" class="block hover:text-blue-400" 
-               hx-get="/menu/qna" hx-target="#main-content" hx-push-url="true">Q&A</a>
-        </nav>
+    <aside class="w-64 bg-slate-900 text-slate-300 flex flex-col shadow-xl">
+        <div class="p-6 border-b border-slate-800">
+            <h1 class="text-xl font-bold text-white flex items-center gap-2">
+                <i data-lucide="database" class="text-blue-400"></i> Silo System
+            </h1>
+        </div>
+        <nav class="flex-1 p-4 space-y-2">
+            <a href="#" class="flex items-center p-3 rounded-lg hover:bg-slate-800 transition-all"
+               hx-get="/menu/silo-map" hx-target="#main-content">
+                <i data-lucide="map" class="mr-3 w-5 h-5"></i> Silo Map
+            </a>
+            </nav>
     </aside>
 
-    <main id="main-content" class="flex-1 p-10 overflow-y-auto">
-        <div th:replace="~{fragments/file-list :: content}"></div>
+    <main class="flex-1 flex flex-col overflow-hidden">
+        <header class="h-16 bg-white border-b flex items-center px-8 shadow-sm">
+            <h2 class="text-lg font-semibold">보관소 파일 탐색기</h2>
+        </header>
+
+        <div id="main-content" class="p-8 overflow-y-auto grow">
+            <div th:replace="~{fragments/file-list :: content}"></div>
+        </div>
     </main>
 
+    <script>lucide.createIcons();</script>
 </body>
 </html>

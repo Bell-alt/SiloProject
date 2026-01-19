@@ -18,10 +18,6 @@ public class MemberDTO {
     private String memberName;
 
     private String memberPass;
-
-    private String memberEmail;
-
-    private String memberAddress;
     
     private MemberRole role;
 
