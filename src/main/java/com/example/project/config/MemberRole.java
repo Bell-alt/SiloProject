@@ -16,7 +16,7 @@ public enum MemberRole {
 
     }
     
-    private int getLevel(){
+    public int getLevel(){
         return level;
     }
 
