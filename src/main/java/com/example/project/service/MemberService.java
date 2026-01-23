@@ -16,8 +16,8 @@ public class MemberService {
     @Autowired
     private Membermapper membermapper;
     
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+    //@Autowired
+    //private BCryptPasswordEncoder passwordEncoder;
     
     @Autowired
     private AuthUtils authUtils;
@@ -29,7 +29,6 @@ public class MemberService {
         memberJoin.setRole(MemberRole.USER);
         membermapper.insertMember(memberJoin); 
        
-
     }
 
 

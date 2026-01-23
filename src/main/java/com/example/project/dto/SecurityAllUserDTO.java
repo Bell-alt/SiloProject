@@ -29,14 +29,14 @@ public class SecurityAllUserDTO implements UserDetails {
     @Override
     public String getPassword() {
         
-        return member.getMemberPass();
+        return member.getMember_pass();
     }
 
 
     @Override
     public String getUsername() {
 
-        return member.getMemberId();
+        return member.getMember_id();
     }
     
 
@@ -45,7 +45,7 @@ public class SecurityAllUserDTO implements UserDetails {
     }
 
     public String getDisplayName(){
-        return member.getMemberName();
+        return member.getMember_name();
     }
 
     @Override

@@ -11,13 +11,13 @@ import lombok.Setter;
 @NoArgsConstructor
 public class MemberDTO {
 
-    private Integer memberIdx;
+    private Integer member_idx;
 
-    private String memberId;
+    private String member_id;
 
-    private String memberName;
+    private String member_name;
 
-    private String memberPass;
+    private String member_pass;
     
     private MemberRole role;
 

@@ -1,9 +1,9 @@
 package com.example.project.controller;
-import org.apache.http.auth.AuthenticationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,7 +36,7 @@ public class UserRestController {
     public String loginProcess(@Valid LoginDTO userLogin, Model model, HttpServletResponse response, HttpServletRequest request){
 
         try {
-            Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userLogin.getMemberID(), userLogin.getMemberPass()))
+            Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userLogin.getMember_id(), userLogin.getMember_pass()));
       
 
              SecurityContext securityContext = SecurityContextHolder.getContext();
@@ -47,7 +47,7 @@ public class UserRestController {
 
              response.setHeader("HX-Redirect", "/");
          
-             return null;
+             return "success";
        
            } catch(AuthenticationException e){
                

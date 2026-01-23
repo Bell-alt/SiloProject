@@ -16,18 +16,10 @@ import lombok.RequiredArgsConstructor;
 import reactor.netty.http.server.HttpServerRequest;
 
 @Controller
-@RequiredArgsConstructor
+//dRequiredArgsConstructor
 public class SiloController {
 
-    private final SIloMapper siloMapper;
-    
-    @GetMapping("/")
-    public String indexS(Model model){
-        
-        //int userLevel = MemberRole.getLevel();
-
-        return "index";
-    
+    //private final SIloMapper siloMapper;
     
     
     @GetMapping("/menu/silo-map")

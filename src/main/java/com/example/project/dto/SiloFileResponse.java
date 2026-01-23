@@ -3,10 +3,9 @@ package com.example.project.dto;
 public class SiloFileResponse {
 
 
-    private Long fileIdx;
-    private String fileName;
+    private Long file_idx;
     private String content;
-    private String fileType;
+    private String file_type;
     private int requiredLevel;
     private boolean hasAccess;
 }
