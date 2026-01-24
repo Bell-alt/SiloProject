@@ -8,6 +8,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.example.project.config.MemberRole;
+
 import lombok.Data;
 
 @Data
@@ -22,9 +24,10 @@ public class SecurityAllUserDTO implements UserDetails {
 	
 	@Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-    return List.of(new SimpleGrantedAuthority("ROLE_" + member.getRole().name()));
+    // return List.of(new SimpleGrantedAuthority("ROLE_" + member.getRole().name()));
+      String memberRole = member.getRole().getMemberRole();
+      return List.of(new SimpleGrantedAuthority(memberRole));
     }
-
 
     @Override
     public String getPassword() {
