@@ -16,7 +16,7 @@
                    th:classappend="${file.hasAccess} ? 'text-blue-600 group-hover:text-white' : 'text-gray-400'"></i>
             </div>
 
-            <span class="text-xs font-bold text-center break-all text-gray-700" th:text="${file.fileName}">파일명</span>
+            <span class="text-xs font-bold text-center break-all text-gray-700" th:text="${file.fileName}">File Name</span>
             <span class="text-[10px] text-gray-400 mt-1" th:text="'Level ' + ${file.requiredLevel}">LV.1</span>
 
             <div th:if="${file.hasAccess}" 
@@ -24,8 +24,12 @@
                  th:attr="hx-get='/file/view/' + ${file.fileIdx}"
                  hx-target="#main-content">
             </div>
+
+            <div th:if="${!file.hasAccess}" 
+                 class="absolute inset-0"
+                 onclick="alert('Access Denied: Your security level is insufficient.')">
+            </div>
         </div>
 
     </div>
-    <script>lucide.createIcons();</script>
 </div>
