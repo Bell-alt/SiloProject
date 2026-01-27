@@ -3,11 +3,11 @@ package com.example.project.dto;
 
 public class FileDTO {
 
-    private Long fileIdx;
-    private String fileName;
+    private Long file_id;
+    private String file_name;
     private String content;
-    private String fileType;
-    private int requiredLevel;
+    private String file_type;
+    private int required_level;
 
 
 }
