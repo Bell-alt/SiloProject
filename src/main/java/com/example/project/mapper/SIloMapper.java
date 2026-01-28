@@ -6,11 +6,12 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
-import com.example.project.dto.SiloFileResponse;
 
 @Mapper
 public interface SIloMapper {
+   
 
+    /* 
 
     @Select("select * from siloFile")
     List<SiloFileResponse> findAllSilos();
@@ -21,5 +22,5 @@ public interface SIloMapper {
              from siloFiles where cetegory = #{category}            
             """)
     List<SiloFileResponse> findByLevelandCategory(@Param("userLevel")int userLevel, @Param("category")String category);
-
+      */
 }

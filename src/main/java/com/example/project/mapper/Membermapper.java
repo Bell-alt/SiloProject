@@ -13,14 +13,13 @@ import org.apache.ibatis.annotations.Select;
 
 import com.example.project.dto.MemberDTO;
 import com.example.project.dto.MemberJoinDTO;
-import com.example.project.dto.SiloFileResponse;
 import com.example.project.handler.MemberRoleTypeHandler;
 
 @Mapper
 public interface Membermapper {
     
-    @Select("select * from siloFile ")
-    SiloFileResponse fildbyId(long id);
+    //@Select("select * from siloFile ")
+    //SiloFileResponse fildbyId(long id);
     
     
     @Insert("insert into member(member_id. member_name, member_pass,role) values(#{member_id}, #{member_name}, #{member_pass}, #{role})")

@@ -4,117 +4,44 @@
     <meta charset="UTF-8">
     <title>Silo Project Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
-        /* [Global Styles] */
+        /* [기본 스타일] */
         body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow: hidden; /* 스크롤 방지 */
+            margin: 0; padding: 0; height: 100%;
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden; background-color: #ecf0f1;
         }
+        .wrapper { display: flex; height: 100vh; width: 100vw; }
 
-        /* [Layout Container] */
-        .wrapper {
-            display: flex;
-            height: 100vh;
-            width: 100vw;
-        }
-
-        /* [Left Sidebar] */
+        /* [왼쪽 사이드바] */
         .sidebar {
-            width: 250px;
-            background-color: #2c3e50; /* 어두운 네이비 */
-            color: #ecf0f1;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-            z-index: 10;
+            width: 250px; background-color: #2c3e50; color: #ecf0f1;
+            display: flex; flex-direction: column; z-index: 10;
         }
+        .sidebar-header { padding: 20px; font-size: 1.5rem; font-weight: bold; text-align: center; border-bottom: 1px solid #34495e; }
+        .menu-list { list-style: none; padding: 0; margin: 0; }
+        .menu-item { padding: 15px 20px; cursor: pointer; border-bottom: 1px solid #34495e; transition: 0.3s; }
+        .menu-item:hover { background-color: #34495e; }
+        .menu-item i { margin-right: 10px; width: 20px; text-align: center; }
 
-        .sidebar-header {
-            padding: 20px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-align: center;
-            border-bottom: 1px solid #34495e;
-        }
-
-        .menu-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .menu-item {
-            padding: 15px 20px;
-            cursor: pointer;
-            transition: background 0.3s;
-            border-bottom: 1px solid #34495e;
-        }
-
-        .menu-item:hover {
-            background-color: #34495e;
-        }
-
-        .menu-item i {
-            margin-right: 10px;
-            width: 20px;
-            text-align: center;
-        }
-
-        /* [Right Desktop Area] */
+        /* [오른쪽 바탕화면 영역] */
         .desktop-area {
-            flex-grow: 1;
-            background-color: #ecf0f1; /* 밝은 회색 혹은 배경화면 */
-            /* 배경 이미지를 넣고 싶다면 아래 주석 해제 */
-            /* background-image: url('/images/wallpaper.jpg'); background-size: cover; */
-            padding: 20px;
-            display: flex;
-            flex-wrap: wrap; /* 아이콘들이 줄바꿈 되도록 */
-            align-content: flex-start; /* 위에서부터 채움 */
-            gap: 20px; /* 아이콘 사이 간격 */
-            position: relative;
+            flex-grow: 1; padding: 30px;
+            display: flex; flex-wrap: wrap; align-content: flex-start; gap: 25px;
         }
 
-        /* [File Icons] */
+        /* [파일 아이콘 스타일] */
         .file-icon {
-            width: 100px;
-            height: 110px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.2s;
-            text-align: center;
+            width: 110px; height: 120px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            cursor: pointer; border-radius: 8px; transition: 0.2s;
         }
-
-        .file-icon:hover {
-            background-color: rgba(0, 0, 0, 0.1); /* 호버 시 약간 어둡게 */
-        }
-
-        .file-icon i {
-            font-size: 3rem;
-            color: #e67e22; /* 파일 색상 (주황색 예시) */
-            margin-bottom: 8px;
-        }
-        
-        /* 파이썬 파일 전용 색상 */
-        .file-icon.py-file i {
-            color: #3498db; 
-        }
-
+        .file-icon:hover { background-color: rgba(0, 0, 0, 0.08); }
+        .file-icon i { font-size: 3.5rem; color: #3498db; margin-bottom: 10px; } /* 파이썬 색상 */
         .file-name {
-            font-size: 0.9rem;
-            color: #333;
-            word-break: break-all;
-            line-height: 1.2;
-            padding: 0 5px;
-            background-color: rgba(255,255,255,0.6); /* 가독성을 위한 배경 */
-            border-radius: 4px;
+            font-size: 0.95rem; color: #2c3e50; font-weight: 500;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2px 8px; border-radius: 4px;
         }
     </style>
 </head>
@@ -122,66 +49,34 @@
 
 <div class="wrapper">
     <aside class="sidebar">
-        <div class="sidebar-header">
-            SILO Project
-        </div>
+        <div class="sidebar-header">SILO Project</div>
         <ul class="menu-list">
-            <li class="menu-item" onclick="location.href='/silo-map'"><i class="fas fa-map"></i> Silo Map</li>
-            <li class="menu-item" onclick="location.href='/silo-info'"><i class="fas fa-info-circle"></i> Silo Info</li>
+            <li class="menu-item"><i class="fas fa-map"></i> Silo Map</li>
+            <li class="menu-item"><i class="fas fa-info-circle"></i> Silo Info</li>
             <li class="menu-item"><i class="fas fa-chart-line"></i> Dashboard</li>
-            <li class="menu-item"><i class="fas fa-cog"></i> Settings</li>
         </ul>
     </aside>
 
     <main class="desktop-area">
-        
-        <div class="file-icon py-file" onclick="checkPermissionAndOpen('script_v1.py', 'USER')">
-            <i class="fab fa-python"></i> <span class="file-name">analysis.py</span>
+        <div th:each="user : ${files}" 
+             class="file-icon" 
+             th:onclick="showMemberInfo([[${user.user_name}]], [[${user.user_phone}]])">
+            
+            <i class="fab fa-python"></i> 
+            <span class="file-name" th:text="${user.user_name}">사용자명</span>
         </div>
-
-        <div class="file-icon py-file" onclick="checkPermissionAndOpen('secret_logic.py', 'ADMIN')">
-            <i class="fab fa-python"></i>
-            <span class="file-name">admin_tool.py</span>
-        </div>
-
-        </main>
+    </main>
 </div>
 
-<script>
+<script th:inline="javascript">
     /**
-     * 파일 클릭 시 권한 체크 로직
-     * @param {string} fileId - 파일 식별자
-     * @param {string} requiredRole - (선택사항) 프론트 단에서 1차 확인용 혹은 서버 전송용
+     * 아이콘 클릭 시 멤버 정보 팝업
      */
-    function checkPermissionAndOpen(fileId, requiredRole) {
-        console.log(`Checking permission for file: ${fileId}`);
-
-        // Spring Boot Backend로 권한 확인 요청
-        fetch(`/api/files/check-access?fileId=${fileId}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => {
-            if (response.ok) {
-                return response.json(); // 접근 허용 시 true 혹은 파일 데이터 반환
-            } else {
-                throw new Error('Access Denied');
-            }
-        })
-        .then(data => {
-            if (data.allowed) {
-                alert(`${fileId} 파일에 접근합니다.\n(다운로드 혹은 뷰어 실행 로직)`);
-                // 예: window.location.href = `/files/download/${fileId}`;
-            } else {
-                alert("⛔ 접근 권한이 없습니다.");
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert("⛔ 접근 권한이 없거나 서버 오류입니다.");
-        });
+    function showMemberInfo(name, phone) {
+        const info = "📂 [멤버 상세 정보]\n\n" +
+                     "이름: " + name + "\n" +
+                     "전화번호: " + phone;
+        alert(info);
     }
 </script>
 

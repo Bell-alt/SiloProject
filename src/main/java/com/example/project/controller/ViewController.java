@@ -2,8 +2,12 @@ package com.example.project.controller;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,34 +17,22 @@ import com.example.project.dto.FileDTO;
 @Controller
 public class ViewController {
     
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+    
     @GetMapping("/")
     public String main(Model model){
+
+        String sql = "select user_name, user_phone from user";
+
+        List<Map<String,Object>> files = jdbcTemplate.queryForList(sql);
          
-   
-       String filePath = "/home/bell/python_project";
-       File directory = new File(filePath);
-
-       if(!directory.exists()) directory.mkdirs();
-
-       File[] listFiles = directory.listFiles();
-
-         
-        List<FileDTO> files = new ArrayList<>();
-        
-
-        if(listFiles != null){
-            for(File file : listFiles){
-                if(file.isFile()){
-                    String fileName = file.getName();
-                    String extension = fileName.substring(fileName.lastIndexOf(".")+1);
-                }
-
-
-            }
-
-        }
+        model.addAttribute("files", files);
 
         return "index";
+     
+      
+   
     }
 
 
