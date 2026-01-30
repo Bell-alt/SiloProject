@@ -22,9 +22,9 @@ public interface Membermapper {
     //SiloFileResponse fildbyId(long id);
     
     
-    @Insert("insert into member(member_id. member_name, member_pass,role) values(#{member_id}, #{member_name}, #{member_pass}, #{role})")
+    @Insert("insert into member(member_id, member_name, member_pass, role) values(#{member_id}, #{member_name}, #{member_pass}, #{role})")
     @Options(useGeneratedKeys = true, keyProperty = "member_idx")
-    void insertMember(MemberJoinDTO memberJoin);
+    public void insertMember(MemberJoinDTO memberJoin);
     
     
     

@@ -23,7 +23,7 @@ public class MemberService {
     private AuthUtils authUtils;
 
     @Transactional(rollbackFor=com.example.project.exception.UserException.class)
-    private void join(MemberJoinDTO memberJoin){
+    private void insertMember(MemberJoinDTO memberJoin){
         
         memberJoin.setMember_pass(authUtils.encodedPassword(memberJoin.getMember_pass()));
         memberJoin.setRole(MemberRole.USER);

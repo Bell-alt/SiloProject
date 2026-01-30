@@ -43,7 +43,7 @@ public class SecurityConfig{
         http
             .csrf(csrf -> csrf.ignoringRequestMatchers(apiMatcher))
             .authorizeHttpRequests(auth -> auth 
-                        .requestMatchers("/auth/login","/api/v1/auth/login","/api/v1/auth/**").permitAll()
+                        .requestMatchers("/auth/login","/auth/join","/api/v1/auth/login","/api/v1/auth/join","/api/v1/auth/**").permitAll()
                          .requestMatchers("/").permitAll()
                           .anyRequest().authenticated()
             )

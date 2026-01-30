@@ -31,8 +31,6 @@ public class ViewController {
 
         return "index";
      
-      
-   
     }
 
 
@@ -40,6 +38,10 @@ public class ViewController {
     public String loginPage(){
         return "auth/login";
     }
-
-
+    
+    @GetMapping("/auth/join")
+    public String joinPage(){
+        return "auth/join";
+    }
+    
 }

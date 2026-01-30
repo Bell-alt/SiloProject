@@ -26,7 +26,7 @@ public class SiloController {
         try{
          if(userdetails == null){
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                  .body(UserResponse.error("로그인이 필ㅇ한 서비스 입니다"));
+                  .body(UserResponse.error("로그인이 필요한 서비스 입니다"));
 
          }
          String role = userdetails.getAuthorities().toString();
